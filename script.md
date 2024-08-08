@@ -4,14 +4,6 @@ When designing functions, it's crucial to maintain clarity and flexibility in ho
 
 ### Single Argument
 
-❌ Bad
-
-```ts
-function greet(name: string) {
-  console.log(`Hello, ${name}`);
-}
-```
-
 ✅ Good
 
 For single arguments where only one parameter is needed, using a direct parameter is straightforward:
