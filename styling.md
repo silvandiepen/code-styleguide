@@ -2,21 +2,23 @@
 
 - **Always use [BEM](#bem) style classes**: Adopting BEM (Block Element Modifier) naming conventions ensures consistency and clarity in your codebase, making it easier to maintain and scale. BEM divides your CSS into blocks, elements, and modifiers, which helps in understanding the relationship between components and their states.
 
-- **Avoid styling HTML elements directly**: Instead of styling elements like `<p>` or `<div>` directly, encapsulate styles within classes. This reduces specificity issues and makes your CSS more modular.
+- **[Avoid styling HTML elements](#styling-on-elements) directly**: Instead of styling elements like `<p>` or `<div>` directly, encapsulate styles within classes. This reduces specificity issues and makes your CSS more modular.
 
 - **Do not use [utility classes](#utility-classes) in HTML**: Keep your HTML clean by avoiding utility classes. Instead, define these styles within the CSS of the specific component. This approach leads to better readability and maintainability of your code.
 
 - **[Prefer custom properties](#custom-properties-over-sass-variables) over Sass variables**: Use CSS custom properties (`--my-variable`) whenever possible. Custom properties can be dynamically updated, inherited, and are more flexible than Sass variables, which are static after compilation.
 
-- **Avoid scoping styles unnecessarily**: Properly structured HTML and CSS should eliminate the need for complex scoping. Over-scoping can make stylesheets harder to maintain and debug.
+- **Avoid [scoping](#scoping) styles unnecessarily**: Properly structured HTML and CSS should eliminate the need for complex scoping. Over-scoping can make stylesheets harder to maintain and debug.
 
 - **Base all sizes on a logical system**: Use a consistent grid, modular scale, or other logical systems for sizing. This approach maintains consistency across your design.
 
-- **Avoid setting sizes on containers**: Containers should adapt to their content, not the other way around. This ensures your design is responsive and fluid.
+- **[Avoid setting sizes on containers](#avoid-container-sizes)**: Containers should adapt to their content, not the other way around. This ensures your design is responsive and fluid.
+
+- **Use [custom properties over Sass variables](#custom-properties--sass-variables) where possible** Custom properties (CSS variables) offer several advantages over Sass variables.
 
 - **Never use ['margin-bottom'](#the-case-of-the-forbidden-margin-bottom)**: Instead of relying on `margin-bottom`, control spacing with adjacent sibling selectors or layout methods like flexbox and grid. This approach prevents spacing issues when elements are reordered or when new elements are added to the layout.
 
-# **Utility Classes**
+## **Utility Classes**
 
 While utility classes have their place, they can clutter your HTML. If you must use them, define and manage them in the stylesheet rather than in the HTML. This approach encapsulates your styles and keeps your HTML clean and semantic.
 
