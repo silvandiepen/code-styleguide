@@ -10,6 +10,8 @@
 
 - **Avoid [scoping](#scoping) styles unnecessarily**: Properly structured HTML and CSS should eliminate the need for complex scoping. Over-scoping can make stylesheets harder to maintain and debug.
 
+- **[Avoid Module Scoping](#module-scoping)**: Frameworks often use module scoping, generating unique classes to encapsulate component styles. While this can prevent global style conflicts, it can also complicate your CSS. Instead, focus on writing clean, modular CSS with well-defined class names. This approach avoids unnecessary complexity, makes styles easier to override, and ensures better consistency across your project.
+
 - **[Base all sizes on a logical system](#base-all-sizes-on-a-logical-system)**: Use a consistent grid, modular scale, or other logical systems for sizing. This approach maintains consistency across your design.
 
 - **[Avoid setting sizes on containers](#avoid-container-sizes)**: Containers should adapt to their content, not the other way around. This ensures your design is responsive and fluid.
@@ -142,6 +144,19 @@ Use a flat, more maintainable structure:
 This approach keeps your styles simple and easier to manage.
 
 Excessive scoping can lead to overly specific selectors, which are hard to override and can cause conflicts. By keeping your selectors shallow, you reduce the likelihood of these issues, making your CSS more robust and easier to work with.
+
+
+
+
+
+## Scoping with Modules
+
+Modern frameworks like Vue and Angular often use scoped CSS, which automatically generates unique classes to encapsulate styles within a component. This allows developers to style elements directly without worrying about global conflicts. For example, you might see a framework-generated class like `.button[data-v-123abc]`, which ensures that the styles only apply to that specific component instance.
+
+While this approach can prevent style leaks and conflicts, I believe it's better to write clean, well-structured HTML and CSS that doesn't rely on scoping. By using meaningful class names and following best practices like BEM, you can avoid these problems without the need for scoped styles. This not only keeps your CSS simpler and more maintainable but also makes it easier to override styles when needed, as you can target classes directly instead of dealing with framework-generated selectors.
+
+Moreover, avoiding scoped styles encourages better collaboration and consistency across your project. When all components use a shared, well-organized CSS system, it's easier to understand and manage the overall design. This approach also allows for more flexibility when integrating or overriding styles in different parts of your application, as you can make changes through the global stylesheet rather than fighting against scoped styles.
+
 
 
 
