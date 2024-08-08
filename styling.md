@@ -195,27 +195,33 @@ By avoiding fixed sizes on containers, you embrace a responsive design approach,
 
 
 
+## The Case of the Forbidden 'Margin-Bottom'
 
+In web design, it's generally best to avoid using `margin-bottom` for spacing. Since web content flows from top to bottom, relying on `margin-bottom` can lead to unpredictable layout issues, especially when elements are reordered or new content is added. Instead, focus on styling based on adjacent elements, which offers more control and consistency.
 
-## **The Case of the Forbidden 'Margin-Bottom'**
+For example, instead of using `margin-bottom` on a `<div>`:
 
-Relying on `margin-bottom` can create unpredictable spacing issues, especially when elements are reordered or new elements are added. For example:
++++
+div {
+    margin-bottom: 10px;
+}
++++
 
-```
-p + .container {
+You can use adjacent sibling selectors to control spacing:
+
++++
+p + div {
     margin-top: 10px;
 }
-```
++++
 
-This approach ensures that spacing is consistent regardless of the order of elements. Additionally, modern CSS layout tools like flexbox and grid offer the `gap` property, which is a more reliable way to manage spacing between items:
+This method ensures that spacing is managed logically and consistently. Additionally, modern layout techniques like flexbox and grid have the `gap` property, which provides a more reliable way to handle spacing between items:
 
-```
++++
 .container {
     display: flex;
-    gap: 20px;
+    gap: 10px;
 }
-```
++++
 
-This eliminates the need for individual margins and provides a more predictable layout.
-
-By avoiding `margin-bottom`, you simplify your layout and avoid issues when elements change order or new components are introduced. Using tools like `gap` in flexbox or grid makes your layout more consistent and easier to manage, leading to fewer layout bugs and a more maintainable codebase.
+By following this approach, you reduce margin-related issues and create a more predictable layout. Using `gap` in flexbox or grid can often eliminate the need for manual margin adjustments, leading to cleaner, more maintainable CSS.
