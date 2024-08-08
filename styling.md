@@ -18,15 +18,6 @@
 
 - **Never use ['margin-bottom'](#the-case-of-the-forbidden-margin-bottom)**: Instead of relying on `margin-bottom`, control spacing with adjacent sibling selectors or layout methods like flexbox and grid. This approach prevents spacing issues when elements are reordered or when new elements are added to the layout.
 
-## **Utility Classes**
-
-While utility classes have their place, they can clutter your HTML. If you must use them, define and manage them in the stylesheet rather than in the HTML. This approach encapsulates your styles and keeps your HTML clean and semantic.
-
-```
-.utility-padding-top {
-    padding-top: 1rem;
-}
-```
 
 ## **BEM**
 
@@ -46,9 +37,6 @@ Using BEM helps structure your classes in a meaningful way, allowing for easier 
 }
 ```
 
-### **More about BEM and why to use it**
-
-BEM's structured approach to naming classes minimizes specificity conflicts, encourages reusability, and makes it easier to maintain large codebases. It is especially beneficial in projects with multiple developers or when working on complex UIs.
 
 ## **Styling on Elements**
 
@@ -73,6 +61,22 @@ This way, your styles are more modular, and the risk of unintended side effects 
 ### **Reasons why**
 
 Directly styling elements can lead to specificity conflicts, as other styles might override them unexpectedly. By using classes, you ensure that styles are encapsulated, predictable, and easier to manage as your project grows.
+
+
+
+## **Utility Classes**
+
+While utility classes have their place, they can clutter your HTML. If you must use them, define and manage them in the stylesheet rather than in the HTML. This approach encapsulates your styles and keeps your HTML clean and semantic.
+
+```
+.utility-padding-top {
+    padding-top: 1rem;
+}
+```
+
+### **More about BEM and why to use it**
+
+BEM's structured approach to naming classes minimizes specificity conflicts, encourages reusability, and makes it easier to maintain large codebases. It is especially beneficial in projects with multiple developers or when working on complex UIs.
 
 ## **Custom Properties > Sass Variables**
 
