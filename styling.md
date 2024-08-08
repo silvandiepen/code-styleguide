@@ -227,8 +227,10 @@ You can use adjacent sibling selectors to control spacing:
 
 ✅ Good
 ```css
-p + div {
-    margin-top: 10px;
+.content{
+    p + div {
+        margin-top: 10px;
+    }
 }
 ```
 
