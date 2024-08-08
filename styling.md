@@ -19,6 +19,12 @@
 - **Never use ['margin-bottom'](#the-case-of-the-forbidden-margin-bottom)**: Instead of relying on `margin-bottom`, control spacing with adjacent sibling selectors or layout methods like flexbox and grid. This approach prevents spacing issues when elements are reordered or when new elements are added to the layout.
 
 
+
+
+
+
+
+
 ## **BEM**
 
 Using BEM helps structure your classes in a meaningful way, allowing for easier comprehension of the relationship between different parts of your UI. BEM naming convention uses a block name, followed by an element name and modifier, separated by double underscores (`__`) and double hyphens (`--`), respectively.
@@ -36,6 +42,14 @@ Using BEM helps structure your classes in a meaningful way, allowing for easier 
     /* Modifier */
 }
 ```
+
+
+
+
+
+
+
+
 
 
 ## **Styling on Elements**
@@ -58,9 +72,14 @@ Instead, apply a class to the button and style that class:
 
 This way, your styles are more modular, and the risk of unintended side effects is reduced. Even when writing scoped CSS, act as though it’s global—this mindset will help you avoid issues later on when styles are combined.
 
-### **Reasons why**
-
 Directly styling elements can lead to specificity conflicts, as other styles might override them unexpectedly. By using classes, you ensure that styles are encapsulated, predictable, and easier to manage as your project grows.
+
+
+
+
+
+
+
 
 
 
@@ -73,10 +92,7 @@ While utility classes have their place, they can clutter your HTML. If you must 
     padding-top: 1rem;
 }
 ```
-
-### **More about BEM and why to use it**
-
-BEM's structured approach to naming classes minimizes specificity conflicts, encourages reusability, and makes it easier to maintain large codebases. It is especially beneficial in projects with multiple developers or when working on complex UIs.
+[BEM](/#bem)'s structured approach to naming classes minimizes specificity conflicts, encourages reusability, and makes it easier to maintain large codebases. It is especially beneficial in projects with multiple developers or when working on complex UIs.
 
 ## **Custom Properties > Sass Variables**
 
@@ -94,9 +110,16 @@ h1 {
 
 Custom properties also enable theming and responsive design patterns that are difficult to achieve with Sass variables alone.
 
-### **Reasons why**
-
 Unlike Sass variables, which are compiled at build time, custom properties are live in the browser, meaning they can be altered based on user interactions or environmental factors like screen size. This dynamic behavior makes them much more powerful for modern web development.
+
+
+
+
+
+
+
+
+
 
 ## **Scoping**
 
@@ -118,9 +141,13 @@ Use a flat, more maintainable structure:
 
 This approach keeps your styles simple and easier to manage.
 
-### **More on why**
-
 Excessive scoping can lead to overly specific selectors, which are hard to override and can cause conflicts. By keeping your selectors shallow, you reduce the likelihood of these issues, making your CSS more robust and easier to work with.
+
+
+
+
+
+
 
 ## **Avoid Container Sizes**
 
@@ -135,9 +162,14 @@ Specifying fixed widths or heights on containers is outdated and often problemat
 
 This approach ensures your design is responsive and adapts to different screen sizes without breaking.
 
-### **More**
-
 By avoiding fixed sizes on containers, you embrace a responsive design approach, ensuring your website or application works well across various devices and screen sizes. This leads to a better user experience and reduces the need for extensive media queries.
+
+
+
+
+
+
+
 
 ## **The Case of the Forbidden 'Margin-Bottom'**
 
@@ -159,7 +191,5 @@ This approach ensures that spacing is consistent regardless of the order of elem
 ```
 
 This eliminates the need for individual margins and provides a more predictable layout.
-
-### **More**
 
 By avoiding `margin-bottom`, you simplify your layout and avoid issues when elements change order or new components are introduced. Using tools like `gap` in flexbox or grid makes your layout more consistent and easier to manage, leading to fewer layout bugs and a more maintainable codebase.
