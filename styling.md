@@ -10,7 +10,7 @@
 
 - **Avoid [scoping](#scoping) styles unnecessarily**: Properly structured HTML and CSS should eliminate the need for complex scoping. Over-scoping can make stylesheets harder to maintain and debug.
 
-- **Base all sizes on a logical system**: Use a consistent grid, modular scale, or other logical systems for sizing. This approach maintains consistency across your design.
+- **[Base all sizes on a logical system](#base-all-sizes-on-a-logical-system)**: Use a consistent grid, modular scale, or other logical systems for sizing. This approach maintains consistency across your design.
 
 - **[Avoid setting sizes on containers](#avoid-container-sizes)**: Containers should adapt to their content, not the other way around. This ensures your design is responsive and fluid.
 
@@ -144,6 +144,17 @@ This approach keeps your styles simple and easier to manage.
 Excessive scoping can lead to overly specific selectors, which are hard to override and can cause conflicts. By keeping your selectors shallow, you reduce the likelihood of these issues, making your CSS more robust and easier to work with.
 
 
+
+
+## Base All Sizes on a Logical System
+
+When designing and developing a website, it's crucial to base all sizes—whether it's spacing, typography, or element dimensions—on a logical system like a grid or a modular scale. This approach creates consistency and ensures that your design is visually harmonious. By sticking to a defined system, you avoid the pitfalls of arbitrary sizing, which can lead to a disjointed and unprofessional appearance.
+
+For example, instead of randomly choosing font sizes like `15px`, `18px`, and `24px`, you might use a modular scale based on a ratio, such as 1.25. This would produce sizes like `16px`, `20px`, and `25px`, which maintain a consistent rhythm and proportion throughout your design. Similarly, you can use a grid system for layout, where all spacing and dimensions are multiples of a base unit, like `8px`, to create a cohesive structure.
+
+Logical systems also simplify responsive design. By using relative units like `em` or `rem` based on a modular scale, you can easily adjust your design for different screen sizes without breaking the visual hierarchy. This approach makes your design more adaptable and ensures a consistent user experience across devices.
+
+In summary, basing sizes on a logical system not only enhances the visual consistency of your design but also streamlines the development process, making it easier to maintain and scale your project over time.
 
 
 
