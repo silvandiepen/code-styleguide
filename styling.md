@@ -31,7 +31,7 @@
 
 Using BEM helps structure your classes in a meaningful way, allowing for easier comprehension of the relationship between different parts of your UI. BEM naming convention uses a block name, followed by an element name and modifier, separated by double underscores (`__`) and double hyphens (`--`), respectively.
 
-```
+```css
 .card {
     /* Block */
 }
@@ -58,7 +58,7 @@ Using BEM helps structure your classes in a meaningful way, allowing for easier 
 
 Avoid styling HTML elements directly. This can lead to conflicts and make your styles harder to manage. For example:
 
-```
+```css
 button {
     background-color: blue;
 }
@@ -66,7 +66,7 @@ button {
 
 Instead, apply a class to the button and style that class:
 
-```
+```css
 .button {
     background-color: blue;
 }
@@ -89,7 +89,7 @@ Directly styling elements can lead to specificity conflicts, as other styles mig
 
 While utility classes have their place, they can clutter your HTML. If you must use them, define and manage them in the stylesheet rather than in the HTML. This approach encapsulates your styles and keeps your HTML clean and semantic.
 
-```
+```css
 .utility-padding-top {
     padding-top: 1rem;
 }
@@ -100,7 +100,7 @@ While utility classes have their place, they can clutter your HTML. If you must 
 
 Custom properties (CSS variables) offer several advantages over Sass variables. For example:
 
-```
+```css
 :root {
     --font-size: 16px;
 }
@@ -127,7 +127,7 @@ Unlike Sass variables, which are compiled at build time, custom properties are l
 
 Good HTML and CSS structure eliminates the need for excessive scoping. Instead of deeply nested selectors:
 
-```
+```css
 .container .container__header .container__title {
     color: #000;
 }
@@ -135,7 +135,7 @@ Good HTML and CSS structure eliminates the need for excessive scoping. Instead o
 
 Use a flat, more maintainable structure:
 
-```
+```css
 .container__title {
     color: #000;
 }
@@ -179,7 +179,7 @@ In summary, basing sizes on a logical system not only enhances the visual consis
 
 Specifying fixed widths or heights on containers is outdated and often problematic. Modern layouts should be flexible, using CSS grid, flexbox, or other responsive techniques to allow containers to adapt to their content. For example:
 
-```
+```css
 .container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -201,27 +201,26 @@ In web design, it's generally best to avoid using `margin-bottom` for spacing. S
 
 For example, instead of using `margin-bottom` on a `<div>`:
 
-+++
+```css
 div {
     margin-bottom: 10px;
 }
-+++
-
+```
 You can use adjacent sibling selectors to control spacing:
 
-+++
+```css
 p + div {
     margin-top: 10px;
 }
-+++
+```
 
 This method ensures that spacing is managed logically and consistently. Additionally, modern layout techniques like flexbox and grid have the `gap` property, which provides a more reliable way to handle spacing between items:
 
-+++
+```css
 .container {
     display: flex;
     gap: 10px;
 }
-+++
+```
 
 By following this approach, you reduce margin-related issues and create a more predictable layout. Using `gap` in flexbox or grid can often eliminate the need for manual margin adjustments, leading to cleaner, more maintainable CSS.
