@@ -1,122 +1,36 @@
-# Styling
+# **Classes**
 
 - **Always use [BEM](#bem) style classes**: Adopting BEM (Block Element Modifier) naming conventions ensures consistency and clarity in your codebase, making it easier to maintain and scale. BEM divides your CSS into blocks, elements, and modifiers, which helps in understanding the relationship between components and their states.
 
-- **Avoid styling HTML elements directly**: Instead of styling elements like `<p>` or `<div>` directly, encapsulate styles within classes. For example, instead of:
+- **Avoid styling HTML elements directly**: Instead of styling elements like `<p>` or `<div>` directly, encapsulate styles within classes. This reduces specificity issues and makes your CSS more modular.
 
-  ```css
-  p {
-      color: #333;
-      padding-top: 20px;
-  }
-  ```
+- **Do not use [utility classes](#utility-classes) in HTML**: Keep your HTML clean by avoiding utility classes. Instead, define these styles within the CSS of the specific component. This approach leads to better readability and maintainability of your code.
 
-  Use:
+- **[Prefer custom properties](#custom-properties-over-sass-variables) over Sass variables**: Use CSS custom properties (`--my-variable`) whenever possible. Custom properties can be dynamically updated, inherited, and are more flexible than Sass variables, which are static after compilation.
 
-  ```css
-  .text-paragraph {
-      color: #333;
-      padding-top: 20px;
-  }
-  ```
+- **Avoid scoping styles unnecessarily**: Properly structured HTML and CSS should eliminate the need for complex scoping. Over-scoping can make stylesheets harder to maintain and debug.
 
-  This reduces specificity issues and makes your CSS more modular.
+- **Base all sizes on a logical system**: Use a consistent grid, modular scale, or other logical systems for sizing. This approach maintains consistency across your design.
 
-- **Do not use [utility classes](#utility-classes) in HTML**: Keep your HTML clean by avoiding utility classes. For example, avoid using classes like `text-center` or `pt-4` directly in HTML. Instead, define these styles within the CSS of the specific component:
+- **Avoid setting sizes on containers**: Containers should adapt to their content, not the other way around. This ensures your design is responsive and fluid.
 
-  ```css
-  .card {
-      text-align: center;
-      padding-top: 1rem;
-  }
-  ```
-
-  This approach leads to better readability and maintainability of your code.
-
-- **[Prefer custom properties](#custom-properties-over-sass-variables) over Sass variables**: Use CSS custom properties (`--my-variable`) whenever possible. Custom properties can be dynamically updated, inherited, and are more flexible than Sass variables, which are static after compilation. For example:
-
-  ```css
-  :root {
-      --primary-color: #3498db;
-  }
-
-  .button {
-      background-color: var(--primary-color);
-  }
-  ```
-
-  This allows you to change `--primary-color` at runtime if needed.
-
-- **Avoid scoping styles unnecessarily**: Properly structured HTML and CSS should eliminate the need for complex scoping. For example, avoid over-nesting selectors:
-
-  ```css
-  .component .component__header .component__title {
-      color: #000;
-  }
-  ```
-
-  Instead, keep it simple:
-
-  ```css
-  .component__title {
-      color: #000;
-  }
-  ```
-
-  Over-scoping can make stylesheets harder to maintain and debug.
-
-- **Base all sizes on a logical system**: Use a consistent grid, modular scale, or other logical systems for sizing. For instance, instead of random pixel values like `22px` or `37px`, base sizes on a scale such as:
-
-  ```css
-  :root {
-      --base-size: 16px;
-  }
-
-  .layout-container {
-      padding: calc(var(--base-size) * 2);
-  }
-  ```
-
-  This approach maintains consistency across your design.
-
-- **Avoid setting sizes on containers**: Containers should adapt to their content, not the other way around. For example, avoid setting fixed widths like `width: 300px` on containers. Instead, use flexible layouts like flexbox or grid:
-
-  ```css
-  .container {
-      display: flex;
-      justify-content: space-between;
-  }
-  ```
-
-  This ensures your design is responsive and fluid.
-
-- **Never use ['margin-bottom'](#the-case-of-the-forbidden-margin-bottom)**: Instead of relying on `margin-bottom`, control spacing with adjacent sibling selectors or layout methods like flexbox and grid. For example:
-
-  ```css
-  p + .container {
-      margin-top: 20px;
-  }
-  ```
-
-  This approach prevents spacing issues when elements are reordered or when new elements are added to the layout.
+- **Never use ['margin-bottom'](#the-case-of-the-forbidden-margin-bottom)**: Instead of relying on `margin-bottom`, control spacing with adjacent sibling selectors or layout methods like flexbox and grid. This approach prevents spacing issues when elements are reordered or when new elements are added to the layout.
 
 # **Utility Classes**
 
-While utility classes have their place, they can clutter your HTML. If you must use them, define and manage them in the stylesheet rather than in the HTML. For example, instead of using a class like `pt-4` in your HTML, define this in your CSS:
+While utility classes have their place, they can clutter your HTML. If you must use them, define and manage them in the stylesheet rather than in the HTML. This approach encapsulates your styles and keeps your HTML clean and semantic.
 
-```css
+```
 .utility-padding-top {
     padding-top: 1rem;
 }
 ```
 
-Then, apply this class in your CSS where needed. This approach encapsulates your styles and keeps your HTML clean and semantic.
-
 ## **BEM**
 
-Using BEM helps structure your classes in a meaningful way, allowing for easier comprehension of the relationship between different parts of your UI. BEM naming convention uses a block name, followed by an element name and modifier, separated by double underscores (`__`) and double hyphens (`--`), respectively. For example:
+Using BEM helps structure your classes in a meaningful way, allowing for easier comprehension of the relationship between different parts of your UI. BEM naming convention uses a block name, followed by an element name and modifier, separated by double underscores (`__`) and double hyphens (`--`), respectively.
 
-```css
+```
 .card {
     /* Block */
 }
@@ -130,17 +44,15 @@ Using BEM helps structure your classes in a meaningful way, allowing for easier 
 }
 ```
 
-This structure not only improves readability but also enhances collaboration among developers by creating a common understanding of how styles are applied.
-
 ### **More about BEM and why to use it**
 
 BEM's structured approach to naming classes minimizes specificity conflicts, encourages reusability, and makes it easier to maintain large codebases. It is especially beneficial in projects with multiple developers or when working on complex UIs.
 
 ## **Styling on Elements**
 
-Avoid styling HTML elements directly. This can lead to conflicts and make your styles harder to manage. For example, styling a `<button>` element directly:
+Avoid styling HTML elements directly. This can lead to conflicts and make your styles harder to manage. For example:
 
-```css
+```
 button {
     background-color: blue;
 }
@@ -148,7 +60,7 @@ button {
 
 Instead, apply a class to the button and style that class:
 
-```css
+```
 .button {
     background-color: blue;
 }
@@ -162,9 +74,9 @@ Directly styling elements can lead to specificity conflicts, as other styles mig
 
 ## **Custom Properties > Sass Variables**
 
-Custom properties (CSS variables) offer several advantages over Sass variables. For example, they can be updated dynamically in JavaScript and provide better inheritance and fallback mechanisms:
+Custom properties (CSS variables) offer several advantages over Sass variables. For example:
 
-```css
+```
 :root {
     --font-size: 16px;
 }
@@ -184,7 +96,7 @@ Unlike Sass variables, which are compiled at build time, custom properties are l
 
 Good HTML and CSS structure eliminates the need for excessive scoping. Instead of deeply nested selectors:
 
-```css
+```
 .container .container__header .container__title {
     color: #000;
 }
@@ -192,7 +104,7 @@ Good HTML and CSS structure eliminates the need for excessive scoping. Instead o
 
 Use a flat, more maintainable structure:
 
-```css
+```
 .container__title {
     color: #000;
 }
@@ -208,7 +120,7 @@ Excessive scoping can lead to overly specific selectors, which are hard to overr
 
 Specifying fixed widths or heights on containers is outdated and often problematic. Modern layouts should be flexible, using CSS grid, flexbox, or other responsive techniques to allow containers to adapt to their content. For example:
 
-```css
+```
 .container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -225,7 +137,7 @@ By avoiding fixed sizes on containers, you embrace a responsive design approach,
 
 Relying on `margin-bottom` can create unpredictable spacing issues, especially when elements are reordered or new elements are added. For example:
 
-```css
+```
 p + .container {
     margin-top: 10px;
 }
@@ -233,7 +145,7 @@ p + .container {
 
 This approach ensures that spacing is consistent regardless of the order of elements. Additionally, modern CSS layout tools like flexbox and grid offer the `gap` property, which is a more reliable way to manage spacing between items:
 
-```css
+```
 .container {
     display: flex;
     gap: 20px;
